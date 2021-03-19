@@ -7,6 +7,7 @@ use App\Producto;
 
 class ProductoController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -63,7 +64,7 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($producto_id)
-    { 
+    {
       //$producto=Producto::find($producto_id,['producto_id']);
       $producto=  Producto::where('producto_id', $producto_id)->first();
       return view('producto.editar',['producto'=>$producto]);
@@ -86,7 +87,7 @@ class ProductoController extends Controller
                    'producto_precio'=>$request->POST('producto_precio'));
     //  $producto->producto_nombre=$request->POST('producto_nombre');
     //  $producto->producto_precio=$request->POST('producto_precio');
-Producto::where('producto_id', '=', $producto_id)->update($array);
+      Producto::where('producto_id', '=', $producto_id)->update($array);
 
       //$producto->save();
       return redirect('/productos');
@@ -100,6 +101,12 @@ Producto::where('producto_id', '=', $producto_id)->update($array);
      */
     public function destroy($id)
     {
-        //
+       $objectproducto=Producto::select('producto_precio')->where('producto_id', $id)->first();
+       echo $objectproducto; die();
+        $producto=Producto::where('producto_id','like', $id)->delete();
+      //Session::flash('message', 'store');
+        //echo "<script>alert('El registro de {{objectproducto->getProductoNombre()}');</script>";
+          return redirect('/productos');
+
     }
 }
