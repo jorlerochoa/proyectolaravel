@@ -3,7 +3,7 @@
 @section('contenido')
 <h2>Crear Registros</h2>
 
-<form action="/productostore" method="post">
+<form action="/productos" method="post">
   @csrf
     <div class="form-group"> <!-- Full Name -->
         <label for="producto_nombre" class="control-label">Nombre</label>

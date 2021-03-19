@@ -1,8 +1,8 @@
 @extends('layout.base')
 <h2>Editar Registros</h2>
 
-<form action="/productoupdate/{{$producto->producto_id}}" method="post">
-{{$producto->producto_id}}
+<form action="/productos/{{$producto->producto_id}}" method="post">
+@method('PUT');
   @csrf
     <div class="form-group"> <!-- Full Name -->
         <label for="producto_nombre" class="control-label">Nombre</label>

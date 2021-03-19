@@ -63,7 +63,7 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($producto_id)
-    {
+    { 
       //$producto=Producto::find($producto_id,['producto_id']);
       $producto=  Producto::where('producto_id', $producto_id)->first();
       return view('producto.editar',['producto'=>$producto]);

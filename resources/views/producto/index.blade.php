@@ -1,7 +1,7 @@
 @extends('layout.base')
- 
+
 @section('contenido')
-<a href="{{ action('ProductoController@create') }}" class="btn btn-primary"> crear</a>
+<a href="productos/create" class="btn btn-primary"> crear</a>
   @csrf
 <table class="table table-striped mt-4">
   <thead>
@@ -20,7 +20,7 @@
       <td>{{$productos->producto_nombre}}</td>
       <td>{{$productos->producto_precio}}</td>
 
-      <td><a href="{{ action('ProductoController@edit', ['producto_id' =>$productos->producto_id]) }}" class="btn btn-info">Editar</a></td>
+      <td><a href="productos/{{$productos->producto_id}}/edit" class="btn btn-info">Editar</a></td>
         <td><a class="btn btn-danger">Borrar</a></td>
     </tr>
     @endforeach
